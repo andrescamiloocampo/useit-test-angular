@@ -1,0 +1,54 @@
+<div class="login">
+  <div class="heading-content">
+    <div class="icon-container">
+      <mat-icon class="account-icon">fingerprint</mat-icon>
+    </div>
+
+    <div class="text-content">
+      <h1 class="title">Sign in to your account</h1>      
+    </div>
+  </div>
+  <div class="login-form">
+    <form class="group">
+      <label for="email">Username</label>
+      <div class="input-container">
+        <div class="input-icon">
+          <mat-icon>mail_outline</mat-icon>
+        </div>
+        <input
+          class="input"
+          name="email"
+          id="email"
+          type="text"
+          [formControl]="usernameCtl"
+          placeholder="Jason Duval"
+        />
+      </div>
+      <label for="password">Password</label>
+      <div class="input-container">
+        <div class="input-icon">
+          <mat-icon>lock_outline</mat-icon>
+        </div>
+        <input
+          class="input"
+          name="password"
+          id="password"
+          [type]="passwordVisible ? 'text':'password'"
+          [formControl]="passwordCtl"
+          placeholder="••••••••"
+        />
+        <div style="cursor: pointer;" class=input-icon (click)="togglePasswordVisibility()">
+            <mat-icon>
+              {{passwordVisible ? 'visibility' : 'visibility_off'}}              
+            </mat-icon>
+          </div>
+      </div>      
+    </form>
+
+    <button class="login-redirection" (click)="login()">Sign In</button>
+    @if(loginError){
+      <div class="login-error">{{ loginError }}</div>
+    }
+          
+  </div>
+</div>

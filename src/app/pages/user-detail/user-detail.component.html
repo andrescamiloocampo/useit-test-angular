@@ -1,0 +1,65 @@
+<div class="details">
+    <nav class="details-nav">
+        <h1>Detalles del usuario</h1>
+        <div class="return" [routerLink]="['/dashboard']">
+            <mat-icon>arrow_back</mat-icon>
+            <p>Volver al inicio</p>        
+        </div>
+    </nav>
+
+  <article class="user-card">
+    <div class="heading-content">
+      <div class="user-pic">
+        <p>{{ user?.username?.at(0)?.toUpperCase() ?? "A" }}</p>
+      </div>
+      <div class="user-details">
+        <h2 class="user-name">{{ user?.name ?? "No name" }}</h2>
+        <div class="user-role">
+          <div class="role-chip">
+            <p class="role">{{ user?.role ?? "No role" }}</p>
+          </div>
+          <p class="id">ID: {{ user?.id ?? "No id" }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-stats">
+      <div class="stat">
+        <div class="stat-icon">
+          <mat-icon>mail_outline</mat-icon>
+        </div>
+        <div class="stat-content">
+          <p class="stat-title">email</p>
+          <p class="stat-value">{{ user?.email ?? "No email" }}</p>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">
+          <mat-icon>person_outline</mat-icon>
+        </div>
+        <div class="stat-content">
+          <p class="stat-title">username</p>
+          <p class="stat-value">{{ user?.username ?? "No username" }}</p>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">
+          <mat-icon>verified_user</mat-icon>
+        </div>
+        <div class="stat-content">
+          <p class="stat-title">role</p>
+          <p class="stat-value">{{ user?.role ?? "No role" }}</p>
+        </div>
+      </div>
+      <div class="stat">
+        <div class="stat-icon">
+          <mat-icon>calendar_today</mat-icon>
+        </div>
+        <div class="stat-content">
+          <p class="stat-title">creation date</p>
+          <p class="stat-value">{{ user?.creationDate ?? "No date" }}</p>
+        </div>
+      </div>
+    </div>
+  </article>
+</div>

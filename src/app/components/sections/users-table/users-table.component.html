@@ -1,0 +1,38 @@
+<div class="table-container">
+  <table class="users-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Usuario</th>
+        <th>Rol</th>
+        <th>Fecha de creación</th>
+        <th>Detalles</th>
+      </tr>
+    </thead>
+    <tbody>
+      @defer(when dataReady){ @for(user of users; track user.id){
+      <tr data-id="{{ user.id }}">
+        <td data-label="ID">{{ user.id }}</td>
+        <td data-label="Nombre">{{ user.name }}</td>
+        <td data-label="Email">{{ user.email }}</td>
+        <td data-label="Usuario">{{ user.username }}</td>
+        <td data-label="Rol">{{ user.role }}</td>
+        <td data-label="Fecha de creación">{{ user.creationDate }}</td>
+        <td>
+          <button class="details" [routerLink]="['/dashboard/user', user.id]">
+            Ver detalles
+          </button>
+        </td>
+      </tr>
+      } }@placeholder {
+      <tr>
+        <td colspan="7" style="padding: 1">
+          <app-table-skeleton />
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

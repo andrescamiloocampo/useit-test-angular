@@ -1,0 +1,194 @@
+.table-container{
+  display: flex;
+  width: 100%;
+  padding: 1rem;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin: 1rem 0;
+  font-size: 1rem;
+  overflow-x: auto;
+  display: table;
+}
+
+.users-table thead {
+  background: var(--color-secondary);
+  display: table-header-group;  
+}
+
+.users-table tbody {
+  display: table-row-group;
+}
+
+.users-table tr {
+  display: table-row;
+  width: 100%;
+}
+
+.users-table th, .users-table td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  min-width: 120px;
+  display: table-cell;
+}
+
+.users-table th {
+  color: var(--color-accent);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.users-table tr:last-child td {
+  border-bottom: none;
+}
+
+.users-table tbody tr:hover {
+  background: var(--color-bg);
+  color: var(--color-accent);
+  transition: background 0.2s, color 0.2s;
+}
+
+@media (max-width: 600px) {
+  .users-table {
+    font-size: 0.95rem;
+  }
+  .users-table th, .users-table td {
+    padding: 0.5rem 0.5rem;
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .users-table {
+    display: block;
+    overflow-x: visible;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    margin: 0.5rem 0;
+  }
+  
+  .users-table thead {
+    display: none;
+  }
+  
+  .users-table tbody {
+    display: block;
+    width: 100%;
+  }
+  
+  .users-table tr {
+    display: block;
+    background: var(--color-surface);
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+    padding: 1.25rem;
+    width: 100%;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .users-table tr:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  .users-table td {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    padding: 0.75rem 0;
+    min-height: auto;
+    background: none;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .users-table td:last-child {
+    border-bottom: none;
+    justify-content: center;
+    padding-top: 1rem;
+  }
+  
+  .users-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    min-width: 100px;
+    flex-shrink: 0;
+  }
+  
+  .users-table td:last-child::before {
+    display: none;
+  }
+  
+  .users-table td[data-label="ID"] {
+    font-family: monospace;
+    font-weight: 500;
+  }
+  
+  .users-table td[data-label="Email"] {
+    font-size: 0.9rem;
+    word-break: break-all;
+  }
+  
+  .users-table td[data-label="Rol"] {
+    text-transform: capitalize;
+    font-weight: 500;
+  }
+  
+  .users-table td[data-label="Fecha de creación"] {
+    font-size: 0.9rem;
+  }
+  
+  .details {
+    background: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-width: 120px;
+  }
+  
+  .details:hover {
+    background: var(--color-accent);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .details:hover {
+    transform: translateY(0);
+  }
+  
+  .users-table tr::before {
+    content: "#" attr(data-id);
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    background: var(--color-primary);
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+}

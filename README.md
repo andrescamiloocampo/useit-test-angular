@@ -1,59 +1,53 @@
-# UseitTestAngular
+# UseIt Test Angular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.8.
+Aplicación Angular para gestión de usuarios con autenticación, tabla responsive y detalles de usuario. Utiliza json-server como backend simulado.
 
-## Development server
+## Requisitos
+- Node.js >= 18
+- npm >= 9
+- Angular 19 
+- json-server
 
-To start a local development server, run:
+## Instalación
+1. Clona el repositorio o descarga el código fuente.
+2. Instala las dependencias:
+   ```bash
+   npm install
+   ```
 
-```bash
-ng serve
-```
+## Inicialización del Backend (json-server)
+1. Asegúrate de tener `json-server` instalado globalmente:
+   ```bash
+   npm install -g json-server
+   ```
+2. Inicia el servidor simulado con el archivo `db.json`:
+   ```bash
+   json-server --watch db.json --port 3000
+   ```
+   Esto expondrá la API REST en `http://localhost:3000/users`.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Inicialización del Frontend (Angular)
+1. En otra terminal, inicia la aplicación Angular:
+   ```bash
+   ng serve
+   ```
+2. Abre tu navegador en `http://localhost:4200`.
 
-## Code scaffolding
+## Uso
+- Inicia sesión con cualquier usuario y contraseña válidos del archivo `db.json`.
+- Visualiza la tabla de usuarios, navega a los detalles y prueba el logout.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Estructura principal
+- `src/app/services/users.service.ts`: Acceso a usuarios vía API REST.
+- `src/app/services/auth.service.ts`: Lógica de autenticación y token.
+- `src/app/guards/auth-guard.guard.ts`: Protección de rutas.
+- `src/app/components/organisms/login/`: Componente de login.
+- `src/app/components/organisms/users-table/`: Tabla de usuarios.
+- `src/app/pages/user-detail/`: Vista de detalles de usuario.
 
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+## Notas
+- Puedes editar `db.json` para agregar, quitar o modificar usuarios.
+- El token de autenticación es el id del usuario guardado en localStorage.
+- Si no tienes un usuario válido, revisa los datos en `db.json`.
+- Puedes usar el usuario admin con la contraseña 1234
+---

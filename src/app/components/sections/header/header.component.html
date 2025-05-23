@@ -1,0 +1,21 @@
+
+<div class="header">            
+    <div class="icon-container" [routerLink]="['/dashboard']">
+        <mat-icon>verified_user</mat-icon>
+        <h1 class="title">Users Crate</h1>
+    </div>
+    <div class="user-stats">        
+        <div class="user-space">
+            <div class="user-pic">                
+                <mat-icon>person_outline</mat-icon>
+            </div>            
+            <div class="user-info">
+                <p class="username">{{user?.username}}</p>
+                <p class="user-tier">{{user?.role}}</p>
+            </div>
+        </div>
+        <div class="logout" (click)="logout()">
+            <mat-icon>logout</mat-icon>            
+        </div>
+    </div>    
+</div>
