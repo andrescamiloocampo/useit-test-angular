@@ -15,8 +15,7 @@ export const routes: Routes = [
       { path: '', component: DashboardComponent },
       { 
         path: 'user/:id', 
-        component: UserDetailComponent,
-        data: { renderMode: 'default' }
+        component: UserDetailComponent,        
       },
     ],
   },
